@@ -8,5 +8,6 @@ int main() {
     for (char i : qq) {
         std::cout << i << "";
     }
-    123;
+
+    return 0;
 }
