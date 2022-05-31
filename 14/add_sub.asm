@@ -7,7 +7,7 @@ mov ax, 0xf000
 mov bx, 0x1000
 add ax, bx 
 
-;不 减法
+;不产生进位 减法
 mov cx, 0x0003
 mov dx, 0x0001
 sub cx, dx
