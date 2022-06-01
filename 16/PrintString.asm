@@ -1,3 +1,7 @@
+VIDEOMEM equ 0xb800
+STRINGLEN equ 0xffff
+CHAROPT equ 0x0c
+
 section code align=16 vstart=0x7c00
 
     mov si, SayHello ; 将SayHello这段字符串的开始地址给si
@@ -10,11 +14,11 @@ section code align=16 vstart=0x7c00
 
 PrintString: ; 标号
     .setup: ; 伪指令，用来标号
-    mov ax, 0xb800 ; 0xb800文本模式下显存起始地址
+    mov ax, VIDEOMEM ; 0xb800文本模式下显存起始地址
     mov es, ax ; 初始化段地址
 
-    mov bh, 0x0c ; 初始化字符属性
-    mov cx, 0xffff ; 设置循环次数
+    mov bh, CHAROPT ; 初始化字符属性
+    mov cx, STRINGLEN ; 设置循环次数
 
     .printchar: ; 伪指令，用来标号
     mov bl, [ds:si] ; 从内存中取字符，复制到bl寄存器
