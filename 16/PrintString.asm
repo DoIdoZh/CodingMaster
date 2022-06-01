@@ -29,12 +29,12 @@ PrintString:
     .return:
     ret
 
+END: jmp END
+
 SayHello db 'Hello!'
          db 0x00
 SayByeBye db 'ByeBye!'
           db 0x00
-
-END: jmp END
 
 ;循环即补0
 jmp $
